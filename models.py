@@ -42,11 +42,21 @@ class UsersList(Schema):
 
 
 """
-Singelton PUT /tasks/<uuid:task_id>
+Singelton PUT /users/<uuid:task_id>
 """
 # arguments
 class UpdateUser(Schema):
     username = fields.String() 
+    password = fields.String()
+
+"""
+Singleton PATCH /users/<uuid:task_id>
+"""
+
+class UpdateUsername(Schema):
+    username = fields.String()
+
+class UpdatePassword(Schema):
     password = fields.String()
 
  
@@ -58,5 +68,7 @@ __all__ = [
     "SortByEnum",
     "SortDirectionEnum",
     "ListUserParameters",
-    "UsersList"
+    "UsersList",
+    "UpdateUsername",
+    "UpdatePassword"
 ]

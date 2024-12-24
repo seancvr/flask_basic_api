@@ -31,7 +31,7 @@ Create routes/views
 """
 # Collection endpoints
 @manage.route("/users")
-class TodoCollection(MethodView): 
+class UsersCollection(MethodView): 
     # POST endpoint
     @manage.arguments(CreateUser) 
     @manage.response(status_code=201, schema=User) # 201 for resource creation
@@ -55,7 +55,7 @@ class TodoCollection(MethodView):
     
 # Singleton endpoints    
 @manage.route("/users/<uuid:user_id>")
-class TodoTask(MethodView):
+class UsersSingle(MethodView):
 
     # get endpoint
     @manage.response(status_code=200, schema=User)
@@ -71,7 +71,7 @@ class TodoTask(MethodView):
     def put(self, payload, user_id): 
         for user in user:
             if user["id"] == user_id:
-                user["username"] == payload["username"]
+                user["username"] = payload["username"]
                 user["password"] = payload["password"]
                 return user
         abort(404, f"Task with ID {user_id} not found.")
@@ -84,6 +84,34 @@ class TodoTask(MethodView):
                 users.pop(index)
                 return
         abort(404, f"Task with ID {user_id} not found")
+
+
+# Singleton patch endpoints
+@manage.route("/users/change_username/<uuid:user_id>")
+class UpdateUsername(MethodView):
+
+    # Update usename
+    @manage.arguments(UpdateUsername)
+    @manage.response(status_code=200, schema=User)
+    def patch(self, payload, user_id):
+        for user in users:
+            if user["id"] == user_id:
+                user["username"] = payload["username"]
+                return user
+        abort(404, f"Task with ID {user_id} not found.")
+
+@manage.route("/users/change_password/<uuid:user_id>")
+class UpdateUsername(MethodView):
+
+    # Update password
+    @manage.arguments(UpdatePassword)
+    @manage.response(status_code=200, schema=User)
+    def patch(self, payload, user_id):
+        for user in users:
+            if user["id"] == user_id:
+                user["password"] = payload["password"]
+                return user
+        abort(404, f"Task with ID {user_id} not found.")
 
 
 # register Blueprint with application object, keep at the bottom of the file

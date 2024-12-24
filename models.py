@@ -50,7 +50,7 @@ class UpdateUser(Schema):
     password = fields.String()
 
 """
-Singleton PATCH /users/<uuid:task_id>
+Singleton PATCH /users/.../<uuid:task_id>
 """
 
 class UpdateUsername(Schema):

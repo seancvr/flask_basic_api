@@ -123,7 +123,7 @@ With the virtual environment activated and the dependencies installed, run the a
 ```bash
 FLASK_APP=app:server flask run --reload
 ```
-Flask runs a development server on **localhost:5000** by default. To access API Swagger management interface, hit the ```localhost:5000/docs``` endpoint in a browser.
+Flask runs a development server on **localhost:5000** by default. To access the API Swagger management interface, hit the ```localhost:5000/docs``` endpoint in a browser.
 
 You should be presented with this Swagger management interface:
 <p align="left">

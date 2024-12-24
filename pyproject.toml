@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "flask-api"
+name = "flask-basic-api"
 version = "0.1.0"
 description = ""
 authors = ["seancvr <134600598+seancvr@users.noreply.github.com>"]

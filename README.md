@@ -113,10 +113,11 @@ class User(Schema):
 
 ### Running the API
 
-With the virtual environment activates and the dependencies installed, run the app using:
+With the virtual environment activated and the dependencies installed, run the app using:
 ```bash
 FLASK_APP=app:server flask run --reload
 ```
+Flask runs a development server on **localhost:5000** by default. To access API Swagger management interface, hit the ```localhost:5000/docs``` endpoint in a browser.
 
 
 

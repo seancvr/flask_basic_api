@@ -26,6 +26,12 @@ Initiate poetry environment (using default settings is fine):
 ```bash
 poetry init
 ```
+
+Say no to  these options:
+<p align="left">
+  <img src="pictures/poetry_init.png" width="80%" height="35%" title="remote_explorer">
+</p>
+
 Install dependencies:
 ```bash
 poetry add flask flask-smorest
@@ -118,6 +124,11 @@ With the virtual environment activated and the dependencies installed, run the a
 FLASK_APP=app:server flask run --reload
 ```
 Flask runs a development server on **localhost:5000** by default. To access API Swagger management interface, hit the ```localhost:5000/docs``` endpoint in a browser.
+
+You should be presented with this Swagger management interface:
+<p align="left">
+  <img src="pictures/manage_users.png" width="80%" height="15%" title="remote_explorer">
+</p>
 
 
 
